@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+canvas {
+  display: block;
+  margin: 25px auto;
+
+  /* VM resolution is 800x600 */
+  width: 800px;
+  height: 600px;
+
+  /* fix fuzziness: https://stackoverflow.com/a/13492784 */
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+a.github {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  text-decoration: none;
+}
+a.github, a.github svg {
+  width: 32px;
+  height: 32px;
+}

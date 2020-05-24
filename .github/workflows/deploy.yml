@@ -1,0 +1,19 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: cloudflare/wrangler-action@master
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+      - uses: jakejarvis/cloudflare-purge-action@master
+        env:
+          CLOUDFLARE_ZONE: "92e2ec634800f776ec4f3e983491c349"
+          CLOUDFLARE_TOKEN: ${{ secrets.CF_API_TOKEN }}

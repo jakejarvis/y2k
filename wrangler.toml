@@ -1,0 +1,10 @@
+name = "y2k"
+type = "webpack"
+account_id = "bd1a636a30a817137ce1e91c9e407373"
+zone_id = "92e2ec634800f776ec4f3e983491c349"
+route = "y2k.lol/*"
+# workers_dev = true
+
+[site]
+bucket = "public"
+entry-point = "workers-site"
