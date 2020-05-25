@@ -3,6 +3,7 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
+  background-repeat: repeat;  /* image is set by JS onload */
 }
 canvas {
   display: block;
@@ -21,7 +22,7 @@ canvas {
   -ms-interpolation-mode: nearest-neighbor;
 }
 a.github {
-  position: absolute;
+  position: fixed;
   right: 16px;
   bottom: 16px;
   text-decoration: none;
@@ -29,4 +30,6 @@ a.github {
 a.github, a.github svg {
   width: 32px;
   height: 32px;
+  fill: #101010;
+  fill-opacity: 0.9;
 }
