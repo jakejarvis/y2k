@@ -7,11 +7,12 @@ body {
 }
 canvas {
   display: block;
-  margin: 25px auto;
-
-  /* VM resolution is 800x600 */
-  width: 800px;
-  height: 600px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 
   /* fix fuzziness: https://stackoverflow.com/a/13492784 */
   image-rendering: optimizeSpeed;
