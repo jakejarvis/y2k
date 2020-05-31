@@ -3,17 +3,18 @@ name: Deploy
 on:
   push:
     branches:
-      - master
+    - master
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
     steps:
-      - uses: actions/checkout@v2
-      - uses: cloudflare/wrangler-action@master
-        with:
-          apiToken: ${{ secrets.CF_API_TOKEN }}
-      - uses: jakejarvis/cloudflare-purge-action@master
-        env:
-          CLOUDFLARE_ZONE: "92e2ec634800f776ec4f3e983491c349"
-          CLOUDFLARE_TOKEN: ${{ secrets.CF_API_TOKEN }}
+    - uses: actions/checkout@v2
+    - uses: cloudflare/wrangler-action@master
+      with:
+        apiToken: ${{ secrets.CF_API_TOKEN }}
+    - uses: jakejarvis/cloudflare-purge-action@master
+      env:
+        CLOUDFLARE_ZONE: "92e2ec634800f776ec4f3e983491c349"
+        CLOUDFLARE_TOKEN: ${{ secrets.CF_API_TOKEN }}
