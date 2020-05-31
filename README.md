@@ -8,11 +8,11 @@ The backend isn't quite ready to be open-sourced (read: it's still a fatally emb
 
 ## Requirements
 
-- Ruby
 - [QEMU 4.x](https://www.qemu.org/) (target i386)
 - [websocketd](https://github.com/joewalnes/websocketd)
 - [noVNC](https://github.com/novnc/noVNC)
 - [Cloudflare Workers](https://workers.cloudflare.com/) & [Argo Tunnel](https://www.cloudflare.com/products/argo-tunnel/)
+- [Microsoft Bob](https://en.wikipedia.org/wiki/Microsoft_Bob)
 
 ## To-Do
 
@@ -20,6 +20,7 @@ The backend isn't quite ready to be open-sourced (read: it's still a fatally emb
 - [ ] Error messages: no websockets, server down, etc.
 - [ ] Usage limits
 - [ ] Responsive browser sizing
+- [ ] **Commit backend scripts**
 
 ## License
 
