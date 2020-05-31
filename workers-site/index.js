@@ -1,4 +1,4 @@
-import { getAssetFromKV, mapRequestToAsset } from '@cloudflare/kv-asset-handler'
+import { getAssetFromKV } from '@cloudflare/kv-asset-handler'
 
 /**
  * The DEBUG flag will do two things that help during development:
@@ -25,21 +25,32 @@ addEventListener('fetch', event => {
 })
 
 async function handleEvent(event) {
-  const url = new URL(event.request.url)
   let options = {
     cacheControl: {
-      edgeTTL: 60 * 60 * 1, // 1 hour
-      browserTTL: 60 * 60 * 1, // 1 hour
-      bypassCache: false,
+      browserTTL: 3600,
     }
   }
 
+  let headers = {
+    'X-XSS-Protection': '1; mode=block',
+    'X-Frame-Options': 'DENY',
+    'X-Content-Type-Options': 'nosniff',
+    'x-y2k-backend': 'v5',
+    'x-y2k-debug': DEBUG,
+  }
+
   try {
-    if (DEBUG) {
-      // customize caching
-      options.cacheControl.bypassCache = true
-    }
-    return await getAssetFromKV(event, options)
+    if (DEBUG) options.cacheControl.bypassCache = true
+
+    // asset was found, the good stuff goes here
+    let asset = await getAssetFromKV(event, options)
+
+    // set various security headers above
+    Object.keys(headers).forEach((name) => {
+      asset.headers.set(name, headers[name])
+    })
+
+    return asset
   } catch (e) {
     // if an error is thrown try to serve the asset at 404.html
     if (!DEBUG) {
@@ -52,6 +63,6 @@ async function handleEvent(event) {
       } catch (e) {}
     }
 
-    return new Response(e.message || e.toString(), { status: 500 })
+    return new Response(e.message || e.toString(), { headers, status: 500 })
   }
 }

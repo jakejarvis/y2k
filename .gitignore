@@ -1,6 +1,9 @@
-node_modules/
 worker/
 dist/
-
+node_modules/
 package-lock.json
+
+# don't accidentally commit OS images (again...)
 *.img
+*.raw
+*.qcow2
