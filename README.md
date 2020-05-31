@@ -1,5 +1,7 @@
 # 💾 [y2k.lol](https://y2k.lol/)
 
+![Deploy](https://github.com/jakejarvis/y2k/workflows/Deploy/badge.svg)
+
 Nostalgic time machine powered by on-demand Windows Me VMs and [my first website](https://jarv.is/y2k/). Inspired by [charlie.bz](https://charlie.bz/) (and quarantine boredom).
 
 The backend isn't quite ready to be open-sourced (read: it's still a fatally embarrassing ball of spaghetti) but will be moved here very soon! 🍝
