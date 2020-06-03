@@ -17,8 +17,9 @@
 <link rel="stylesheet" href="style.css">
 <link rel="shortcut icon" href="favicon.ico">
 <link rel="preconnect" href="https://sandbox.y2k.lol">
-<link rel="dns-prefetch" href="https://sandbox.y2k.lol">
+<link rel="preconnect" href="https://collect.y2k.lol">
 <link rel="web-socket" href="wss://sandbox.y2k.lol">
+<script>window.sa_event=window.sa_event||function(){a=[].slice.call(arguments);sa_event.q?sa_event.q.push(a):sa_event.q=[a]};</script>
 </head>
 <body>
 <canvas id="display"></canvas>
@@ -35,6 +36,7 @@ if (window.WebSocket) {
 var random_tile = Math.floor(Math.random() * 20);
 document.body.style.backgroundImage = 'url("tiles/tile_' + random_tile + '.png")';
 </script>
-<script async defer src="https://scripts.simpleanalyticscdn.com/latest.js" data-skip-dnt="true"></script>
+<script async defer src="https://collect.y2k.lol/latest.js" data-skip-dnt="true"></script>
+<noscript><img src="https://collect.y2k.lol/noscript.gif" alt=""/></noscript>
 </body>
 </html>
