@@ -33,6 +33,8 @@ if (window.WebSocket) {
   var rfb = new RFB({ target: display, encrypt: true });
   rfb.connect("sandbox.y2k.lol", 443);
 }
+</script>
+<script>
 var random_tile = Math.floor(Math.random() * 20);
 document.body.style.backgroundImage = 'url("tiles/tile_' + random_tile + '.png")';
 </script>

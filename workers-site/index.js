@@ -28,10 +28,11 @@ async function handleEvent(event) {
   let options = {
     cacheControl: {
       browserTTL: 3600,
+      edgeTTL: 604800,
     }
   }
 
-  let headers = {
+  const headers = {
     'X-XSS-Protection': '1; mode=block',
     'X-Frame-Options': 'DENY',
     'X-Content-Type-Options': 'nosniff',
@@ -63,6 +64,6 @@ async function handleEvent(event) {
       } catch (e) {}
     }
 
-    return new Response(e.message || e.toString(), { headers, status: 500 })
+    return new Response(e.message || e.toString(), { status: 500 })
   }
 }
