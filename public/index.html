@@ -11,14 +11,14 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>y2k.lol – Powered by Windows Me 💾</title>
+<title>Y2K Land — Powered by Windows Me 💾</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="My first website on a Windows Me-powered time machine. You've been warned.">
 <link rel="stylesheet" href="style.css">
 <link rel="shortcut icon" href="favicon.ico">
-<link rel="preconnect" href="https://sandbox.y2k.lol">
-<link rel="preconnect" href="https://collect.y2k.lol">
-<link rel="web-socket" href="wss://sandbox.y2k.lol">
+<link rel="preconnect" href="https://sandbox.y2k.land">
+<link rel="preconnect" href="https://collect.y2k.land">
+<link rel="web-socket" href="wss://sandbox.y2k.land">
 <script>window.sa_event=window.sa_event||function(){a=[].slice.call(arguments);sa_event.q?sa_event.q.push(a):sa_event.q=[a]};</script>
 </head>
 <body>
@@ -31,14 +31,14 @@
 if (window.WebSocket) {
   var display = document.getElementById("display");
   var rfb = new RFB({ target: display, encrypt: true });
-  rfb.connect("sandbox.y2k.lol", 443);
+  rfb.connect("sandbox.y2k.land", 443);
 }
 </script>
 <script>
 var random_tile = Math.floor(Math.random() * 20);
 document.body.style.backgroundImage = 'url("tiles/tile_' + random_tile + '.png")';
 </script>
-<script async defer src="https://collect.y2k.lol/latest.js" data-skip-dnt="true"></script>
-<noscript><img src="https://collect.y2k.lol/noscript.gif" alt=""/></noscript>
+<script async defer src="https://collect.y2k.land/latest.js" data-skip-dnt="true"></script>
+<noscript><img src="https://collect.y2k.land/noscript.gif" alt=""/></noscript>
 </body>
 </html>
