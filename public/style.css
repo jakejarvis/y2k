@@ -1,15 +1,23 @@
+@font-face {
+  font-family: "Perfect DOS VGA 437";
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/perfect-dos.woff2") format("woff2"),
+       url("fonts/perfect-dos.woff") format("woff");
+}
 body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
+  font-family: "Perfect DOS VGA 437", monospace;
 
   /* specific retro wallpaper tile is set randomly by JS onload */
   background-repeat: repeat;
   background-attachment: fixed;
   background-position: center; 
 }
-canvas {
+canvas, div#wait {
   display: block;
   margin: auto;
   position: absolute;
@@ -17,6 +25,18 @@ canvas {
   bottom: 0;
   left: 0;
   right: 0;
+}
+div#wait {
+  width: 600px;
+  height: 300px;
+  background-color: #000;
+  color: #ccc;
+  padding: 10px;
+  user-select: none;
+  z-index: -100;
+}
+canvas {
+  z-index: 100;
 
   /* fix fuzziness: https://stackoverflow.com/a/13492784 */
   image-rendering: optimizeSpeed;
@@ -38,4 +58,12 @@ a.github {
   /* lazy CSS trick to make octocat visible on different tiles */
   fill: #fff;
   mix-blend-mode: exclusion;
+}
+span.blink {
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
 }

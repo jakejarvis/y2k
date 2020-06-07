@@ -22,21 +22,22 @@
 <script>window.sa_event=window.sa_event||function(){a=[].slice.call(arguments);sa_event.q?sa_event.q.push(a):sa_event.q=[a]};</script>
 </head>
 <body>
+<div id="wait"><span id="message">Spinning up your very own personal computer, please wait!</span> <span class="blink">_</span></div>
 <canvas id="display"></canvas>
 <a class="github" href="https://github.com/jakejarvis/y2k" title="View on GitHub" target="_blank" rel="noopener">
 <svg viewBox="0 0 16 16" width="32" height="32"><path d="M8 0a8 8 0 00-2.5 15.6c.4 0 .5-.2.5-.4v-1.5c-2 .4-2.5-.5-2.7-1 0-.1-.5-.9-.8-1-.3-.2-.7-.6 0-.6.6 0 1 .6 1.2.8.7 1.2 1.9 1 2.4.7 0-.5.2-.9.5-1-1.8-.3-3.7-1-3.7-4 0-.9.3-1.6.8-2.2 0-.2-.3-1 .1-2 0 0 .7-.3 2.2.7a7.4 7.4 0 014 0c1.5-1 2.2-.8 2.2-.8.5 1.1.2 2 .1 2.1.5.6.8 1.3.8 2.2 0 3-1.9 3.7-3.6 4 .3.2.5.7.5 1.4v2.2c0 .2.1.5.5.4A8 8 0 0016 8a8 8 0 00-8-8z"/></svg>
 </a>
 <script src="app.js"></script>
 <script>
+var random_tile = Math.floor(Math.random() * 20);
+document.body.style.backgroundImage = 'url("tiles/tile_' + random_tile + '.png")';
 if (window.WebSocket) {
   var display = document.getElementById("display");
   var rfb = new RFB({ target: display, encrypt: true });
   rfb.connect("sandbox.y2k.land", 443);
+} else {
+  document.getElementById("message").innerHTML = "WebSockets must be enabled to enter Y2K Land!!!<br><br>Press the Any key to continue."
 }
-</script>
-<script>
-var random_tile = Math.floor(Math.random() * 20);
-document.body.style.backgroundImage = 'url("tiles/tile_' + random_tile + '.png")';
 </script>
 <script async defer src="https://collect.y2k.land/latest.js" data-skip-dnt="true"></script>
 <noscript><img src="https://collect.y2k.land/noscript.gif" alt=""/></noscript>
