@@ -160,15 +160,17 @@ window.Websock_native=!0;window.MozWebSocket&&(window.WebSocket=window.MozWebSoc
  * Keeping it somewhat readable until I automate minification.
  */
 (function () {
-var t = Math.floor(Math.random() * 20);
 var s = document.getElementById("status");
-document.body.style.backgroundImage = "url('tiles/tile_" + t + ".png')";
+var d = document.getElementById("display");
+var t = Math.floor(Math.random() * 20);
 if (window.WebSocket) {
-  var display = document.getElementById("display");
-  var rfb = new RFB({ target: display, encrypt: true });
+  var rfb = new RFB({ target: d, encrypt: true });
   rfb.connect("sandbox.y2k.land", 443);
+  document.body.style.backgroundImage = "url('tiles/tile_" + t + ".png')";
   s.innerHTML = "Spinning up your very own personal computer, please wait!";
-  setTimeout(function () { s.innerHTML = "Oh dear, it looks like something went very wrong. :(<br><br>We might be a little busy, please try again in a bit!"; }, 20000);
+  setTimeout(function () {
+    s.innerHTML = "Oh dear, it looks like something went very wrong. :(<br><br><a href=\"https://status.jrvs.io/785127956\" target=\"_blank\" rel=\"noopener\">Click here</a> to check the server status, or try again in a bit.";
+  }, 20000);
 } else {
   s.innerHTML = "WebSockets must be enabled to enter Y2K Land!!!<br><br>Press the Any key to continue.";
 }

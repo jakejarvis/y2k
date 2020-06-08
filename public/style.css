@@ -6,16 +6,22 @@
        url("fonts/perfect-dos.woff") format("woff");
 }
 body {
-  margin: 0;
-  padding: 0;
+  font-family: "Perfect DOS VGA 437", monospace;
   width: 100%;
   height: 100%;
-  font-family: "Perfect DOS VGA 437", monospace;
+  margin: 0;
+  padding: 0;
+  user-select: none;
 
   /* specific retro wallpaper tile is set randomly by JS onload */
+  background-color: #000;
   background-repeat: repeat;
   background-attachment: fixed;
   background-position: center; 
+}
+a {
+  color: inherit;
+  text-decoration: underline;
 }
 canvas, div#cmd {
   display: block;
@@ -32,7 +38,6 @@ div#cmd {
   padding: 12px;
   background-color: #000;
   color: #ccc;
-  user-select: none;
   z-index: -100;
 }
 canvas {
