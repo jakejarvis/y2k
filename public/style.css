@@ -17,7 +17,7 @@ body {
   background-attachment: fixed;
   background-position: center; 
 }
-canvas, div#wait {
+canvas, div#cmd {
   display: block;
   margin: auto;
   position: absolute;
@@ -26,12 +26,12 @@ canvas, div#wait {
   left: 0;
   right: 0;
 }
-div#wait {
+div#cmd {
   width: 600px;
   height: 300px;
+  padding: 12px;
   background-color: #000;
   color: #ccc;
-  padding: 10px;
   user-select: none;
   z-index: -100;
 }
