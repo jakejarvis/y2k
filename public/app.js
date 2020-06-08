@@ -168,7 +168,7 @@ if (window.WebSocket) {
   var rfb = new RFB({ target: display, encrypt: true });
   rfb.connect("sandbox.y2k.land", 443);
   s.innerHTML = "Spinning up your very own personal computer, please wait!";
-  setTimeout(function () { s.innerHTML = "Oh dear, it looks like we're a little busy right now. :(<br><br>Please try again in a bit!"; }, 35000);
+  setTimeout(function () { s.innerHTML = "Oh dear, it looks like something went very wrong. :(<br><br>We might be a little busy, please try again in a bit!"; }, 20000);
 } else {
   s.innerHTML = "WebSockets must be enabled to enter Y2K Land!!!<br><br>Press the Any key to continue.";
 }
