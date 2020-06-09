@@ -32,28 +32,14 @@ async function handleEvent(event) {
     }
   }
 
-  const headers = {
-    'X-XSS-Protection': '1; mode=block',
-    'X-Frame-Options': 'DENY',
-    'X-Content-Type-Options': 'nosniff',
-    'x-y2k-backend': 'v5',
-    'x-y2k-debug': DEBUG,
-  }
-
   try {
+    // make debugging easier (see top of this file)
     if (DEBUG) options.cacheControl.bypassCache = true
 
-    // asset was found, the good stuff goes here
-    let asset = await getAssetFromKV(event, options)
-
-    // set various security headers above
-    Object.keys(headers).forEach((name) => {
-      asset.headers.set(name, headers[name])
-    })
-
-    return asset
+    // asset was found
+    return await getAssetFromKV(event, options)
   } catch (e) {
-    // if an error is thrown try to serve the asset at 404.html
+    // if a 404 error is thrown try to serve the asset at 404.html
     if (!DEBUG) {
       try {
         let notFoundResponse = await getAssetFromKV(event, {
