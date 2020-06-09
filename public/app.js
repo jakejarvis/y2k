@@ -156,22 +156,5 @@ window.Websock_native=!0;window.MozWebSocket&&(window.WebSocket=window.MozWebSoc
 /*!
  * Custom code for y2k.land, licensed under MIT:
  * https://github.com/jakejarvis/y2k
- *
- * Keeping it somewhat readable until I automate minification.
  */
-(function () {
-var s = document.getElementById("status");
-var d = document.getElementById("display");
-var t = Math.floor(Math.random() * 20);
-if (window.WebSocket) {
-  var rfb = new RFB({ target: d, encrypt: true });
-  rfb.connect("sandbox.y2k.land", 443);
-  document.body.style.backgroundImage = "url('tiles/tile_" + t + ".png')";
-  s.innerHTML = "Spinning up your very own personal computer, please wait!";
-  setTimeout(function () {
-    s.innerHTML = "Oh dear, it looks like something went very wrong. :(<br><br><a href=\"https://status.jrvs.io/785127956\" target=\"_blank\" rel=\"noopener\">Click here</a> to check the server status, or try again in a bit.";
-  }, 20000);
-} else {
-  s.innerHTML = "WebSockets must be enabled to enter Y2K Land!!!<br><br>Press the Any key to continue.";
-}
-})();
+(function(){var e=document.getElementById("status"),t=document.getElementById("display"),n=Math.floor(20*Math.random());window.WebSocket?(new RFB({target:t,encrypt:!0}).connect("sandbox.y2k.land",443),document.body.style.backgroundImage="url('tiles/tile_"+n+".png')",e.innerHTML="Spinning up your very own personal computer, please wait!",setTimeout(function(){e.innerHTML='Oh dear, it looks like something went very wrong. :(<br><br><a href="https://status.jrvs.io/785127956" target="_blank" rel="noopener">Click here</a> to check the server status, or try again in a bit.'},2e4)):e.innerHTML="WebSockets must be enabled to enter Y2K Land!!!<br><br>Press the Any key to continue."})();
