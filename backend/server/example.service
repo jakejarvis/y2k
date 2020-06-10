@@ -1,0 +1,16 @@
+# /lib/systemd/system/y2k.service
+
+[Unit]
+Description=y2k websockets
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+ExecStart=/root/y2k/backend/server/socket.sh
+
+[Install]
+WantedBy=multi-user.target
