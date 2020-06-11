@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 # encoding: BINARY
+# warn_indent: true
+# frozen_string_literal: true
 
 # This script starts a QEMU child process wearing a VNC sock and acts as
 # middleman between the socket and stdin/out. Perfect for VNC clients that
@@ -38,9 +40,8 @@ begin
 
   # start QEMU as a child process (TODO: put config somewhere more manageable)
   qemu = spawn qemu_path,
-    "-hda", "#{base_path}/hdd.img",
+    "-drive", "file=#{base_path}/hdd.img,format=qcow2",
     "-cpu", "pentium3,enforce",
-    "-smp", "1",
     "-m", "128",
     "-net", "none",
     "-serial", "none",
