@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# you probably shouldn't just run this! ;)
+# WARNING: you probably shouldn't just run this! ;)
 
 set -euxo pipefail
 
@@ -12,17 +12,11 @@ apt-get -y --no-install-recommends install \
     ca-certificates \
     gnupg-agent \
     software-properties-common \
-    curl \
-    wget \
     unzip
 
 #### install papertrail logging ####
 wget -qO - --header="X-Papertrail-Token: CHANGEMECHANGEMECHANGEME" \
   https://papertrailapp.com/destinations/CHANGEME/setup.sh | bash
-
-#### docker fixes ####
-# sed -i 's/\(GRUB_CMDLINE_LINUX="\)"/\1cgroup_enable=memory swapaccount=1"/' /etc/default/grub
-# update-grub
 
 #### install Docker from official repository ####
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
@@ -33,28 +27,53 @@ add-apt-repository \
   stable"
 apt-get update
 apt-get install docker-ce docker-ce-cli containerd.io
+docker version
+
+#### docker fixes ####
+## https://github.com/moby/moby/issues/4250
+# sed -i 's/\(GRUB_CMDLINE_LINUX="\)"/\1cgroup_enable=memory swapaccount=1"/' /etc/default/grub
+# update-grub
 
 #### install websocketd ####
-wget https://github.com/joewalnes/websocketd/releases/download/v0.3.1/websocketd-0.3.1-linux_amd64.zip
-unzip websocketd-0.3.1-linux_amd64.zip
-chmod +x websocketd
-mv websocketd /usr/bin/
+## https://github.com/joewalnes/websocketd/releases
+WEBSOCKETD_VERSION=0.3.1
+wget -nv -P /tmp/ https://github.com/joewalnes/websocketd/releases/download/v${WEBSOCKETD_VERSION}/websocketd-${WEBSOCKETD_VERSION}-linux_amd64.zip
+unzip /tmp/websocketd-${WEBSOCKETD_VERSION}-linux_amd64.zip websocketd -d /tmp
+mv /tmp/websocketd /usr/local/bin/
+chmod +x /usr/local/bin/websocketd
+rm /tmp/websocketd-${WEBSOCKETD_VERSION}-linux_amd64.zip
+websocketd --version
 
 #### install cloudflared ####
-wget https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.deb
-dpkg -i cloudflared-stable-linux-amd64.deb
-cloudflared update
-cloudflared tunnel login
+## https://developers.cloudflare.com/argo-tunnel/downloads/
+wget -nv -P /tmp/ https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.deb
+dpkg -i /tmp/cloudflared-stable-linux-amd64.deb
+rm /tmp/cloudflared-stable-linux-amd64.deb
+cloudflared version
 cloudflared service install
 systemctl enable cloudflared
 systemctl start cloudflared
 
-#### clone repository ####
-git clone https://github.com/jakejarvis/y2k.git /root/y2k
+#### login to cloudflare ####
+cloudflared tunnel login
 
-#### pull Docker image ####
-docker login
-docker pull jakejarvis/y2k:latest
+#### install Google Cloud Registry credential helper ####
+## https://cloud.google.com/container-registry/docs/advanced-authentication#standalone-helper
+## https://github.com/GoogleCloudPlatform/docker-credential-gcr/releases
+GCR_HELPER_VERSION=2.0.1
+curl -fsSL https://github.com/GoogleCloudPlatform/docker-credential-gcr/releases/download/v${GCR_HELPER_VERSION}/docker-credential-gcr_linux_amd64-${GCR_HELPER_VERSION}.tar.gz | tar xz --to-stdout ./docker-credential-gcr > /usr/local/bin/docker-credential-gcr
+chmod +x /usr/local/bin/docker-credential-gcr
+docker-credential-gcr version
+
+#### login to GCR ####
+docker-credential-gcr gcr-login
+docker-credential-gcr configure-docker
+
+#### pull OS container ####
+docker pull gcr.io/jakejarvis/y2k:latest
+
+#### clone repository for scripts ####
+git clone https://github.com/jakejarvis/y2k.git /root/y2k
 
 #### enable & start service ####
 cp /root/y2k/backend/server/example.service /lib/systemd/system/y2k.service

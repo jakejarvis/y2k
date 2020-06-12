@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-/usr/bin/websocketd \
+/usr/local/bin/websocketd \
   --port=80 \
   --binary \
   --header-ws="Sec-WebSocket-Protocol: binary" \
@@ -12,7 +12,8 @@
     --network none \
     --log-driver none \
     --rm -i \
-    jakejarvis/y2k:latest
+    gcr.io/jakejarvis/y2k:latest
 
-# NOTE: if not using Docker, the command is:
+# to spawn QEMU processes natively on the host machine instead of via
+# individual Docker containers:
 # /root/y2k/backend/bin/boot.rb /root/y2k/backend/hdd /usr/bin/qemu-system-i386
