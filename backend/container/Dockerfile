@@ -1,4 +1,4 @@
-FROM ubuntu:focal
+FROM docker.io/ubuntu:20.04
 
 LABEL maintainer="Jake Jarvis <jake@jarv.is>"
 LABEL repository="https://github.com/jakejarvis/y2k"
@@ -24,11 +24,16 @@ RUN apt-get update \
 RUN qemu-system-i386 --version \
  && ruby --version
 
+ENV TINI_VERSION 0.19.0
+ADD https://github.com/krallin/tini/releases/download/v${TINI_VERSION}/tini /usr/local/bin/tini
+RUN chmod +x /usr/local/bin/tini
+
 # ----
 # TODO: make *each container* a websockets server so we can load balance, etc.
 
-# RUN wget https://github.com/joewalnes/websocketd/releases/download/v0.3.1/websocketd-0.3.1-linux_amd64.zip \
-#  && unzip websocketd-0.3.1-linux_amd64.zip \
+# ENV WEBSOCKETD_VERSION 0.3.1
+# RUN wget https://github.com/joewalnes/websocketd/releases/download/v${WEBSOCKETD_VERSION}/websocketd-${WEBSOCKETD_VERSION}-linux_amd64.zip \
+#  && unzip websocketd-${WEBSOCKETD_VERSION}-linux_amd64.zip \
 #  && chmod +x websocketd \
 #  && mv websocketd /usr/local/bin/
 
@@ -52,4 +57,5 @@ RUN chmod +x /usr/local/bin/boot-vm \
 USER vm
 WORKDIR /home/vm
 
+ENTRYPOINT ["tini", "--"]
 CMD ["boot-vm"]
