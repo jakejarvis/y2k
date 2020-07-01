@@ -52,23 +52,26 @@ canvas {
   image-rendering: pixelated;
   -ms-interpolation-mode: nearest-neighbor;
 }
-a.github {
-  position: fixed;
-  right: 16px;
-  bottom: 16px;
-  width: 32px;
-  height: 32px;
-  text-decoration: none;
-
-  /* lazy CSS trick to make octocat visible on different tiles */
-  fill: #fff;
-  mix-blend-mode: exclusion;
-}
 span.blink {
   animation: blink 1s step-end infinite;
 }
 @keyframes blink {
   50% {
     opacity: 0;
+  }
+}
+/* stolen from https://custom-elements-everywhere.com/ :) */
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+@keyframes octocat-wave {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    transform: rotate(10deg);
   }
 }
