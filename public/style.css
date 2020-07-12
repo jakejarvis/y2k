@@ -60,7 +60,7 @@ span.blink {
     opacity: 0;
   }
 }
-/* stolen from https://custom-elements-everywhere.com/ :) */
+/* http://tholman.com/github-corners/ */
 .github-corner:hover .octo-arm {
   animation: octocat-wave 560ms ease-in-out;
 }
