@@ -1,0 +1,3 @@
+hostname: y2k-sandbox.dns7.net
+url: http://localhost:80
+logfile: /var/log/cloudflared.log
