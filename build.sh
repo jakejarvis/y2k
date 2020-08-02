@@ -6,7 +6,7 @@ set -euxo pipefail
 YOU_ARE_HERE="$(realpath "$(dirname "${BASH_SOURCE[0]}")")"
 
 # container will be useless unless we bundle the actual OS
-test -f "$YOU_ARE_HERE"/hdd/hdd.img
+test -f "$YOU_ARE_HERE"/container/hdd/hdd.img
 
 # this image is private on Google Cloud Registry, make sure we're logged in
 gcloud auth configure-docker

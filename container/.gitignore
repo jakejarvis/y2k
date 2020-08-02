@@ -1,4 +1,0 @@
-# don't accidentally commit OS images (again...)
-*.img
-*.raw
-*.qcow2

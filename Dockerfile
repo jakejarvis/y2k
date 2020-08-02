@@ -45,9 +45,9 @@ RUN chmod +x /usr/local/bin/tini
 # do everything as an unprivileged user :)
 RUN useradd -m vm
 
-# copy boot script and Windows HDD (must be at ./hdd/hdd.img)
-COPY bin/boot.rb /usr/local/bin/boot-vm
-COPY --chown=vm hdd/hdd.img /home/vm/hdd.img
+# copy boot script and Windows HDD (must be at ./container/hdd/hdd.img)
+COPY container/bin/boot.rb /usr/local/bin/boot-vm
+COPY --chown=vm container/hdd/hdd.img /home/vm/hdd.img
 
 # make double sure the boot script is executable & the hard drive was copied
 RUN chmod +x /usr/local/bin/boot-vm \

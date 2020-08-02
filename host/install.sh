@@ -14,10 +14,6 @@ apt-get -y --no-install-recommends install \
     software-properties-common \
     unzip
 
-#### install papertrail logging ####
-wget -qO - --header="X-Papertrail-Token: CHANGEMECHANGEMECHANGEME" \
-  https://papertrailapp.com/destinations/CHANGEME/setup.sh | bash
-
 #### install Docker from official repository ####
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 apt-key fingerprint 0EBFCD88
@@ -31,8 +27,8 @@ docker version
 
 #### docker fixes ####
 ## https://github.com/moby/moby/issues/4250
-# sed -i 's/\(GRUB_CMDLINE_LINUX="\)"/\1cgroup_enable=memory swapaccount=1"/' /etc/default/grub
-# update-grub
+sed -i 's/\(GRUB_CMDLINE_LINUX="\)"/\1cgroup_enable=memory swapaccount=1"/' /etc/default/grub
+update-grub
 
 #### install websocketd ####
 ## https://github.com/joewalnes/websocketd/releases
@@ -60,7 +56,7 @@ cloudflared tunnel login
 #### install Google Cloud Registry credential helper ####
 ## https://cloud.google.com/container-registry/docs/advanced-authentication#standalone-helper
 ## https://github.com/GoogleCloudPlatform/docker-credential-gcr/releases
-GCR_HELPER_VERSION=2.0.1
+GCR_HELPER_VERSION=2.0.2
 curl -fsSL https://github.com/GoogleCloudPlatform/docker-credential-gcr/releases/download/v${GCR_HELPER_VERSION}/docker-credential-gcr_linux_amd64-${GCR_HELPER_VERSION}.tar.gz | tar xz --to-stdout ./docker-credential-gcr > /usr/local/bin/docker-credential-gcr
 chmod +x /usr/local/bin/docker-credential-gcr
 docker-credential-gcr version
@@ -76,7 +72,7 @@ docker pull gcr.io/jakejarvis/y2k:latest
 git clone https://github.com/jakejarvis/y2k.git /root/y2k
 
 #### enable & start service ####
-cp /root/y2k/server/example.service /lib/systemd/system/y2k.service
+cp /root/y2k/host/example.service /lib/systemd/system/y2k.service
 systemctl daemon-reload
 systemctl enable y2k
 systemctl start y2k
