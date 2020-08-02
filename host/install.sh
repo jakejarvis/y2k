@@ -4,6 +4,8 @@
 
 set -euxo pipefail
 
+REPO_DIR=/root/y2k
+
 #### install basic requirements ####
 apt-get -y update
 apt-get -y dist-upgrade
@@ -12,7 +14,11 @@ apt-get -y --no-install-recommends install \
     ca-certificates \
     gnupg-agent \
     software-properties-common \
+    git \
     unzip
+
+#### clone repository for scripts ####
+git clone https://github.com/jakejarvis/y2k.git $REPO_DIR
 
 #### install Docker from official repository ####
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
@@ -47,11 +53,12 @@ dpkg -i /tmp/cloudflared-stable-linux-amd64.deb
 rm /tmp/cloudflared-stable-linux-amd64.deb
 cloudflared version
 cloudflared service install
-systemctl enable cloudflared
-systemctl start cloudflared
 
 #### login to cloudflare ####
 cloudflared tunnel login
+cp $REPO_DIR/host/.cloudflared/config.yml /etc/cloudflared/config.yml
+systemctl enable cloudflared
+systemctl start cloudflared
 
 #### install Google Cloud Registry credential helper ####
 ## https://cloud.google.com/container-registry/docs/advanced-authentication#standalone-helper
@@ -68,11 +75,8 @@ docker-credential-gcr configure-docker
 #### pull OS container ####
 docker pull gcr.io/jakejarvis/y2k:latest
 
-#### clone repository for scripts ####
-git clone https://github.com/jakejarvis/y2k.git /root/y2k
-
 #### enable & start service ####
-cp /root/y2k/host/example.service /lib/systemd/system/y2k.service
+cp $REPO_DIR/host/example.service /lib/systemd/system/y2k.service
 systemctl daemon-reload
 systemctl enable y2k
 systemctl start y2k
