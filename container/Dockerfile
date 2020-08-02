@@ -2,7 +2,7 @@ FROM docker.io/ubuntu:20.04
 
 LABEL maintainer="Jake Jarvis <jake@jarv.is>"
 LABEL repository="https://github.com/jakejarvis/y2k"
-LABEL homepage="https://y2k.land/"
+LABEL homepage="https://y2k.jarv.is/"
 
 ARG DEBIAN_FRONTEND=noninteractive
 

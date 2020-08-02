@@ -1,10 +1,12 @@
-# 💾 [Y2K Land](https://y2k.land/) [![Uptime Robot status](https://img.shields.io/uptimerobot/status/m785127956-49458d510e68142930db872d?logo=windows%2095)](https://y2k.land/) [![Uptime Robot ratio (7 days)](https://img.shields.io/uptimerobot/ratio/7/m785127956-49458d510e68142930db872d?color=%23638ebd&logo=zeit)](https://status.jrvs.io/785127956) [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/jakejarvis/y2k/Deploy?color=orange&logo=github)](https://github.com/jakejarvis/y2k/actions?query=workflow%3ADeploy)
+# 💾 [Y2K Sandbox](https://y2k.jarv.is/) [![Uptime Robot status](https://img.shields.io/uptimerobot/status/m785127956-49458d510e68142930db872d?logo=windows%2095)](https://y2k.jarv.is/) [![Uptime Robot ratio (7 days)](https://img.shields.io/uptimerobot/ratio/7/m785127956-49458d510e68142930db872d?color=%23638ebd&logo=zeit)](https://status.jrvs.io/785127956)
 
-Nostalgic time machine powered by on-demand Windows Me® VMs, [my first website](https://jarv.is/y2k/), and quarantine boredom. 📟
+Nostalgic time machine powered by on-demand Windows Me® VMs, [my first website](https://github.com/jakejarvis/my-first-website), and quarantine boredom. 📟
+
+This branch contains the backend scripts and Windows Me container. The frontend website code is in [the `gh-pages` branch](https://github.com/jakejarvis/y2k/tree/gh-pages).
 
 [**📝 Read the blog post here.**](https://jarv.is/notes/y2k-land/)
 
-<p align="center"><a href="https://y2k.land/"><img width="600" src="screenshot.png"></a></p>
+<p align="center"><a href="https://y2k.jarv.is/"><img width="600" src="screenshot.png"></a></p>
 
 ## Requirements
 

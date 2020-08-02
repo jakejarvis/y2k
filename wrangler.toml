@@ -1,9 +1,0 @@
-name = "y2k"
-type = "webpack"
-account_id = "bd1a636a30a817137ce1e91c9e407373"
-zone_id = "8a79e5c61c0a7033d7b0eca176665cd1"
-route = "y2k.land/*"
-
-[site]
-bucket = "public"
-entry-point = "workers-site"

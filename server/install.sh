@@ -76,7 +76,7 @@ docker pull gcr.io/jakejarvis/y2k:latest
 git clone https://github.com/jakejarvis/y2k.git /root/y2k
 
 #### enable & start service ####
-cp /root/y2k/backend/server/example.service /lib/systemd/system/y2k.service
+cp /root/y2k/server/example.service /lib/systemd/system/y2k.service
 systemctl daemon-reload
 systemctl enable y2k
 systemctl start y2k
