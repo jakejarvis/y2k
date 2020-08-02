@@ -24,10 +24,6 @@ RUN apt-get update \
 RUN qemu-system-i386 --version \
  && ruby --version
 
-ENV TINI_VERSION 0.19.0
-ADD https://github.com/krallin/tini/releases/download/v${TINI_VERSION}/tini /usr/local/bin/tini
-RUN chmod +x /usr/local/bin/tini
-
 # ----
 # TODO: make *each container* a websockets server so we can load balance, etc.
 
@@ -57,5 +53,4 @@ RUN chmod +x /usr/local/bin/boot-vm \
 USER vm
 WORKDIR /home/vm
 
-ENTRYPOINT ["tini", "--"]
-CMD ["boot-vm"]
+ENTRYPOINT ["boot-vm"]
