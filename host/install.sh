@@ -79,10 +79,13 @@ docker-credential-gcr configure-docker
 #### pull OS container ####
 docker pull gcr.io/jakejarvis/y2k:latest
 
-#### enable & start service ####
+#### enable services ####
 cp $REPO_DIR/host/example.service /lib/systemd/system/y2k.service
 systemctl daemon-reload
 systemctl enable y2k
-systemctl start y2k
 systemctl enable cloudflared
-systemctl start cloudflared
+
+#### reboot ####
+echo "Rebooting shortly..."
+sleep 15
+reboot 0
