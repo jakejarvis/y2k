@@ -4,7 +4,7 @@
   --port=80 \
   --binary \
   --header-ws="Sec-WebSocket-Protocol: binary" \
-  --origin=y2k.jarv.is,y2k.jakejarvis.workers.dev \
+  --origin=y2k.jarv.is,jarv.is,y2k.jakejarvis.workers.dev \
   -- \
   docker run \
     --cpus 1 \

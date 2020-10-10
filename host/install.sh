@@ -28,7 +28,10 @@ add-apt-repository \
   $(lsb_release -cs) \
   stable"
 apt-get update
-apt-get install docker-ce docker-ce-cli containerd.io
+apt-get -y install \
+    docker-ce \
+    docker-ce-cli \
+    containerd.io
 docker version
 
 #### docker fixes ####
@@ -52,13 +55,14 @@ wget -nv -P /tmp/ https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-a
 dpkg -i /tmp/cloudflared-stable-linux-amd64.deb
 rm /tmp/cloudflared-stable-linux-amd64.deb
 cloudflared version
-cloudflared service install
 
 #### login to cloudflare ####
+cp $REPO_DIR/host/.cloudflared/config.yml /etc/cloudflared/
 cloudflared tunnel login
-cp $REPO_DIR/host/.cloudflared/config.yml /etc/cloudflared/config.yml
-systemctl enable cloudflared
-systemctl start cloudflared
+cloudflared service install
+# move auto-downloaded certificate to a more sensible location
+cp ~/.cloudflared/cert.pem /etc/cloudflared/
+rm ~/.cloudflared/cert.pem
 
 #### install Google Cloud Registry credential helper ####
 ## https://cloud.google.com/container-registry/docs/advanced-authentication#standalone-helper
@@ -80,3 +84,5 @@ cp $REPO_DIR/host/example.service /lib/systemd/system/y2k.service
 systemctl daemon-reload
 systemctl enable y2k
 systemctl start y2k
+systemctl enable cloudflared
+systemctl start cloudflared
