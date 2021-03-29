@@ -42,7 +42,7 @@ begin
   qemu = spawn qemu_path,
     "-drive", "file=#{base_path}/hdd.img,format=qcow2",
     "-cpu", "pentium3,enforce",
-    "-m", "128",
+    "-m", "96",
     "-net", "none",
     "-serial", "none",
     "-parallel", "none",
