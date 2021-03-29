@@ -8,8 +8,8 @@ YOU_ARE_HERE="$(realpath "$(dirname "${BASH_SOURCE[0]}")")"
 # container will be useless unless we bundle the actual OS
 test -f "$YOU_ARE_HERE"/container/hdd/hdd.img
 
-# this image is private on Google Cloud Registry, make sure we're logged in
-gcloud auth configure-docker
+# this image is private on DigitalOcean, make sure we're logged in
+doctl registry login
 
-docker build -t gcr.io/jakejarvis/y2k:latest --no-cache "$YOU_ARE_HERE"
-docker push gcr.io/jakejarvis/y2k:latest
+docker build -t registry.digitalocean.com/jakejarvis/y2k:latest --no-cache "$YOU_ARE_HERE"
+docker push registry.digitalocean.com/jakejarvis/y2k:latest

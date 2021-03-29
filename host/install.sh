@@ -64,20 +64,14 @@ cloudflared service install
 cp ~/.cloudflared/cert.pem /etc/cloudflared/
 rm ~/.cloudflared/cert.pem
 
-#### install Google Cloud Registry credential helper ####
-## https://cloud.google.com/container-registry/docs/advanced-authentication#standalone-helper
-## https://github.com/GoogleCloudPlatform/docker-credential-gcr/releases
-GCR_HELPER_VERSION=2.0.2
-curl -fsSL https://github.com/GoogleCloudPlatform/docker-credential-gcr/releases/download/v${GCR_HELPER_VERSION}/docker-credential-gcr_linux_amd64-${GCR_HELPER_VERSION}.tar.gz | tar xz --to-stdout ./docker-credential-gcr > /usr/local/bin/docker-credential-gcr
-chmod +x /usr/local/bin/docker-credential-gcr
-docker-credential-gcr version
-
-#### login to GCR ####
-docker-credential-gcr gcr-login
-docker-credential-gcr configure-docker
+#### login to DO registry ####
+snap install doctl
+snap connect doctl:dot-docker
+doctl auth init
+doctl registry login
 
 #### pull OS container ####
-docker pull gcr.io/jakejarvis/y2k:latest
+docker pull registry.digitalocean.com/jakejarvis/y2k:latest
 
 #### enable services ####
 cp $REPO_DIR/host/example.service /lib/systemd/system/y2k.service

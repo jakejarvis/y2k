@@ -12,7 +12,7 @@
     --network none \
     --log-driver none \
     --rm -i \
-    gcr.io/jakejarvis/y2k:latest
+    registry.digitalocean.com/jakejarvis/y2k:latest
 
 # to spawn QEMU processes natively on the host machine instead of via
 # individual Docker containers:
