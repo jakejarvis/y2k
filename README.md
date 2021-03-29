@@ -1,4 +1,4 @@
-# 💾 [Y2K Sandbox](https://y2k.jarv.is/) [![Uptime Robot status](https://img.shields.io/uptimerobot/status/m785127956-49458d510e68142930db872d?logo=windows%2095)](https://y2k.jarv.is/) [![Uptime Robot ratio (7 days)](https://img.shields.io/uptimerobot/ratio/7/m785127956-49458d510e68142930db872d?color=%23638ebd&logo=zeit)](https://status.jrvs.io/785127956)
+# 💾 [Y2K Sandbox](https://y2k.app/) [![Uptime Robot status](https://img.shields.io/uptimerobot/status/m785127956-49458d510e68142930db872d?logo=windows%2095)](https://y2k.app/) [![Uptime Robot ratio (7 days)](https://img.shields.io/uptimerobot/ratio/7/m785127956-49458d510e68142930db872d?color=%23638ebd&logo=zeit)](https://status.jrvs.io/785127956)
 
 Nostalgic time machine powered by on-demand Windows Me® VMs, [my first website](https://jakejarvis.github.io/my-first-website/), and quarantine boredom. 📟
 
@@ -6,7 +6,7 @@ This branch contains the backend scripts and Windows Me container. The frontend 
 
 [**📝 Read the blog post here.**](https://jarv.is/notes/y2k-sandbox/)
 
-<p align="center"><a href="https://y2k.jarv.is/"><img width="600" src="screenshot.png"></a></p>
+<p align="center"><a href="https://y2k.app/"><img width="600" src="screenshot.png"></a></p>
 
 ## Requirements
 
