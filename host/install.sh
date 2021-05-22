@@ -41,7 +41,7 @@ update-grub
 
 #### install websocketd ####
 ## https://github.com/joewalnes/websocketd/releases
-WEBSOCKETD_VERSION=0.3.1
+WEBSOCKETD_VERSION=0.4.1
 wget -nv -P /tmp/ https://github.com/joewalnes/websocketd/releases/download/v${WEBSOCKETD_VERSION}/websocketd-${WEBSOCKETD_VERSION}-linux_amd64.zip
 unzip /tmp/websocketd-${WEBSOCKETD_VERSION}-linux_amd64.zip websocketd -d /tmp
 mv /tmp/websocketd /usr/local/bin/

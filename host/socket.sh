@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
-/usr/local/bin/websocketd \
+REPO_DIR=/root/y2k
+
+$REPO_DIR/host/websocketd \
   --port=80 \
   --binary \
   --header-ws="Sec-WebSocket-Protocol: binary" \
-  --origin=y2k.jarv.is,y2k.app,y2k.jakejarvis.workers.dev \
+  --origin=y2k.app,www.y2k.app \
   -- \
   docker run \
     --cpus 1 \
