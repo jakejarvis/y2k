@@ -13,3 +13,7 @@ doctl registry login
 
 docker build -t registry.digitalocean.com/jakejarvis/y2k:latest --no-cache "$YOU_ARE_HERE"
 docker push registry.digitalocean.com/jakejarvis/y2k:latest
+
+# on DigitalOcean, old tags need to be purged manually:
+#   doctl registry garbage-collection start --force --include-untagged-manifests
+#   doctl registry garbage-collection get-active

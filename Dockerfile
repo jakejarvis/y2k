@@ -1,4 +1,4 @@
-FROM docker.io/ubuntu:20.04
+FROM docker.io/amd64/ubuntu:20.04
 
 LABEL maintainer="Jake Jarvis <jake@jarv.is>"
 LABEL repository="https://github.com/jakejarvis/y2k"
