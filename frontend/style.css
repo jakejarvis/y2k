@@ -1,0 +1,77 @@
+@font-face {
+  font-family: "Perfect DOS VGA 437";
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/perfect-dos.woff2") format("woff2"),
+       url("fonts/perfect-dos.woff") format("woff");
+}
+body {
+  font-family: "Perfect DOS VGA 437", monospace;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+
+  /* specific retro wallpaper tile is set randomly by JS onload */
+  background-color: #000;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-position: center; 
+}
+a {
+  color: inherit;
+  text-decoration: underline;
+}
+canvas, div#cmd {
+  display: block;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+div#cmd {
+  width: 600px;
+  height: 300px;
+  padding: 12px;
+  background-color: #000;
+  color: #ccc;
+  z-index: -100;
+}
+canvas {
+  z-index: 100;
+
+  /* fix fuzziness: https://stackoverflow.com/a/13492784 */
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+span.blink {
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+/* http://tholman.com/github-corners/ */
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+@keyframes octocat-wave {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    transform: rotate(10deg);
+  }
+}

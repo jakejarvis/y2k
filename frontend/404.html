@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Page Not Found</title>
+<style>
+@font-face {
+  font-family: "Perfect DOS VGA 437";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/perfect-dos.woff2") format("woff2"),
+       url("/fonts/perfect-dos.woff") format("woff");
+}
+body {
+  margin: 60px;
+  background: #0014a3;
+  font-family: "Perfect DOS VGA 437", monospace;
+  font-size: 1.1em;
+  line-height: 1.8;
+  letter-spacing: 0.015em;
+  color: #fff;
+  user-select: none;
+}
+#wrap {
+  display: block;
+  margin: auto;
+  max-width: 650px;
+}
+h1 {
+  margin: 1.2em auto;
+  font-size: 1em;
+  font-weight: normal;
+  text-align: center;
+}
+h1 span {
+  background-color: #aaa;
+  color: #0014a3;
+  padding: 0.3em;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+p {
+  margin: 1em 0;
+}
+p:last-of-type {
+  text-align: center;
+}
+ul {
+  position: relative;
+  list-style: none;
+  margin-left: 0;
+  padding-left: 1.6em;
+}
+ul li:before {
+  content: "*";
+  position: absolute;
+  left: 0;
+}
+span.blink {
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+</style>
+</head>
+<body>
+<div id="wrap">
+<h1><span>Windows</span></h1>
+<p>A fatal exception 404_NOT_FOUND has occured at 0x69ABC420. The current application will be terminated.</p>
+<ul>
+<li>Press any key to terminate the current application.</li>
+<li>Press CTRL+ALT+DEL to restart your computer. If you do this, you will lose any unsaved information in all open applications.</li>
+</ul>
+<p><a href="/">&nbsp; Click here to return to Windows <span class="blink">_</span></a></p>
+</div>
+</body>
+</html>
