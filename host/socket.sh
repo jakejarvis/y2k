@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 REPO_DIR=/root/y2k
+IMAGE_NAME=y2k:latest
 
 $REPO_DIR/host/websocketd \
   --port=80 \
@@ -14,7 +15,7 @@ $REPO_DIR/host/websocketd \
     --network none \
     --log-driver none \
     --rm -i \
-    registry.digitalocean.com/jakejarvis/y2k:latest
+    $IMAGE_NAME
 
 # to spawn QEMU processes natively on the host machine instead of via
 # individual Docker containers:

@@ -66,20 +66,14 @@ cloudflared service install
 cp ~/.cloudflared/cert.pem /etc/cloudflared/
 rm ~/.cloudflared/cert.pem
 
-#### login to DO registry ####
-snap install doctl
-snap connect doctl:dot-docker
-doctl auth init
-doctl registry login
-
-#### pull OS container ####
-docker pull registry.digitalocean.com/jakejarvis/y2k:latest
-
 #### enable services ####
 cp $REPO_DIR/host/example.service /lib/systemd/system/y2k.service
 systemctl daemon-reload
 systemctl enable y2k
 systemctl enable cloudflared
+
+#### build fresh docker image if ready ####
+bash $REPO_DIR/build.sh || true
 
 #### reboot ####
 echo "Rebooting shortly..."
