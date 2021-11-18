@@ -38,6 +38,8 @@ docker version
 ## https://github.com/moby/moby/issues/4250
 sed -i 's/\(GRUB_CMDLINE_LINUX="\)"/\1cgroup_enable=memory swapaccount=1"/' /etc/default/grub
 update-grub
+## enable `docker build --squash`
+echo "{ \"experimental\": true }" > /etc/docker/daemon.json
 
 #### install websocketd ####
 ## https://github.com/joewalnes/websocketd/releases

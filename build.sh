@@ -12,7 +12,7 @@ test -f "$YOU_ARE_HERE"/container/hdd/hdd.img
 doctl registry login
 
 docker build -t registry.digitalocean.com/jakejarvis/y2k:latest --squash --no-cache "$YOU_ARE_HERE"
-# docker push registry.digitalocean.com/jakejarvis/y2k:latest
+docker push registry.digitalocean.com/jakejarvis/y2k:latest
 
 # on DigitalOcean, old tags need to be purged manually:
 #   doctl registry garbage-collection start --force --include-untagged-manifests

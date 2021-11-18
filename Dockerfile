@@ -9,19 +9,24 @@ ARG DEBIAN_FRONTEND=noninteractive
 # corrects the time inside the Windows VM, if tzdata is installed below
 ENV TZ=America/New_York
 
-RUN apt-get update \
- && apt-get -y upgrade \
- && apt-get -y --no-install-recommends install \
-        ca-certificates \
-        tzdata \
-        qemu-system-x86 \
-        qemu-utils \
-        ruby \
- && apt-get clean \
- && rm -rf /var/lib/apt/lists/*
+# do everything as an unprivileged user :)
+RUN useradd -m vm
 
-# make sure everything's okay so far
-RUN qemu-system-i386 --version \
+# copy boot script and Windows HDD (must be at ./container/hdd/hdd.img)
+COPY container/bin/boot.rb /usr/local/bin/boot-vm
+COPY --chown=vm container/hdd/hdd.img /home/vm/hdd.img
+
+RUN apt-get update \
+ && apt-get -y --no-install-recommends install \
+        tzdata \
+        ruby \
+        qemu-system-x86 \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/* \
+ && chmod +x /usr/local/bin/boot-vm \
+ && ls -lah /home/vm \
+ # make sure everything's okay so far
+ && qemu-system-i386 --version \
  && ruby --version
 
 # ----
@@ -37,17 +42,6 @@ RUN qemu-system-i386 --version \
 
 # EXPOSE 80
 # ----
-
-# do everything as an unprivileged user :)
-RUN useradd -m vm
-
-# copy boot script and Windows HDD (must be at ./container/hdd/hdd.img)
-COPY container/bin/boot.rb /usr/local/bin/boot-vm
-COPY --chown=vm container/hdd/hdd.img /home/vm/hdd.img
-
-# make double sure the boot script is executable & the hard drive was copied
-RUN chmod +x /usr/local/bin/boot-vm \
- && ls -lah /home/vm
 
 # bye bye root <3
 USER vm
