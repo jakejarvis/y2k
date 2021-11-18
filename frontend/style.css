@@ -40,9 +40,11 @@ div#cmd {
   height: 300px;
   padding: 12px;
   background-color: #000;
+  z-index: -100;
+}
+div#cmd span {
   color: #ccc;
   white-space: pre;
-  z-index: -100;
 }
 div#display {
   max-width: 800px;
