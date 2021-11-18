@@ -4,7 +4,7 @@ import RFB from "https://cdn.skypack.dev/pin/@novnc/novnc@v1.3.0-RRNSIy674lWHJVN
 const cmd = document.getElementById("status");
 
 // random tile wallpaper
-document.body.style.backgroundImage = "url('tiles/tile_" + Math.floor(20 * Math.random()) + ".png')";
+document.body.style.backgroundImage = "url('tiles/tile_" + Math.floor(20 * Math.random()) + ".jpg')";
 
 if (window.WebSocket) {
   // https://github.com/novnc/noVNC/blob/master/docs/API.md
