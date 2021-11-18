@@ -1,4 +1,4 @@
-import RFB from "https://cdn.jsdelivr.net/npm/@novnc/novnc/core/rfb.js/+esm";
+import RFB from "https://cdn.skypack.dev/pin/@novnc/novnc@v1.3.0-RRNSIy674lWHJVNg8Apd/mode=imports,min/unoptimized/core/rfb.js";
 
 // DOS-style box for text
 const cmd = document.getElementById("cmd-text");
