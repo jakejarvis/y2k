@@ -1,8 +1,7 @@
 import RFB from "https://cdn.skypack.dev/pin/@novnc/novnc@v1.3.0-RRNSIy674lWHJVNg8Apd/mode=imports,min/unoptimized/core/rfb.js";
 
-// loading indicator
+// DOS-style box for text
 const console = document.getElementById("status");
-console.textContent = "Spinning up your very own personal computer, please wait!";
 
 // random tile wallpaper
 document.body.style.backgroundImage = "url('tiles/tile_" + Math.floor(20 * Math.random()) + ".png')";
