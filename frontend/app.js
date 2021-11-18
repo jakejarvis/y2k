@@ -24,7 +24,7 @@ if (window.WebSocket) {
 
   // give up after 15 seconds (this also is rendered behind the VNC display in case it crashes and goes poof)
   setTimeout(() => {
-    cmd.textContent = "Oh dear, it looks like something went very wrong. :(\n\nTry again in a bit.\n\n\nPress the Any key to continue.";
+    cmd.textContent = "Oh dear, it looks like something went very wrong. :(\n\nRefresh or try again in a bit.\n\n\nPress the Any key to continue.";
   }, 15000);
 } else {
   // browser doesn't support websockets
