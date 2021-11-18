@@ -7,6 +7,7 @@ const cmd = document.getElementById("status");
 document.body.style.backgroundImage = "url('tiles/tile_" + Math.floor(20 * Math.random()) + ".png')";
 
 if (window.WebSocket) {
+  // https://github.com/novnc/noVNC/blob/master/docs/API.md
   const rfb = new RFB(
     document.getElementById("display"),
     "wss://spin-vm.jrvs.io",
@@ -14,6 +15,12 @@ if (window.WebSocket) {
       wsProtocols: ["binary", "base64"],
     }
   );
+  rfb.addEventListener("connect", () => {
+    console.log("successfully connected to VM socket!");
+  });
+  rfb.addEventListener("disconnect", (detail) => {
+    console.warn("VM ended session remotely:", detail);
+  });
 
   // give up after 15 seconds (this also is rendered behind the VNC display in case it crashes and goes poof)
   setTimeout(() => {
