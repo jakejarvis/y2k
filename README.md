@@ -2,8 +2,6 @@
 
 Nostalgic time machine powered by on-demand Windows Me® VMs, [my first website](https://jakejarvis.github.io/my-first-website/), and quarantine boredom. 📟
 
-This branch contains the backend scripts and Windows Me container. The frontend website code is in [the `gh-pages` branch](https://github.com/jakejarvis/y2k/tree/gh-pages).
-
 [**📝 Read the blog post here.**](https://jarv.is/notes/y2k-sandbox/)
 
 <p align="center"><a href="https://y2k.app/"><img width="600" src="screenshot.png"></a></p>

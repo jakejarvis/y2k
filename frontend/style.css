@@ -5,6 +5,7 @@
   src: url("fonts/perfect-dos.woff2") format("woff2"),
        url("fonts/perfect-dos.woff") format("woff");
 }
+
 body {
   font-family: "Perfect DOS VGA 437", monospace;
   width: 100%;
@@ -17,13 +18,15 @@ body {
   background-color: #000;
   background-repeat: repeat;
   background-attachment: fixed;
-  background-position: center; 
+  background-position: center;
 }
+
 a {
   color: inherit;
   text-decoration: underline;
 }
-canvas, div#cmd {
+
+div#cmd, div#display {
   display: block;
   margin: auto;
   position: absolute;
@@ -38,9 +41,13 @@ div#cmd {
   padding: 12px;
   background-color: #000;
   color: #ccc;
+  white-space: pre;
   z-index: -100;
 }
-canvas {
+div#display {
+  max-width: 800px;
+  max-height: 600px;
+
   z-index: 100;
 
   /* fix fuzziness: https://stackoverflow.com/a/13492784 */
@@ -52,18 +59,28 @@ canvas {
   image-rendering: pixelated;
   -ms-interpolation-mode: nearest-neighbor;
 }
+div#display div {
+  background: none !important;
+}
+div#display div canvas {
+  cursor: default !important;
+}
+
 span.blink {
   animation: blink 1s step-end infinite;
 }
+
 @keyframes blink {
   50% {
     opacity: 0;
   }
 }
+
 /* http://tholman.com/github-corners/ */
 .github-corner:hover .octo-arm {
   animation: octocat-wave 560ms ease-in-out;
 }
+
 @keyframes octocat-wave {
   0%, 100% {
     transform: rotate(0);
