@@ -1,8 +1,8 @@
-FROM docker.io/amd64/ubuntu:20.04
+FROM docker.io/ubuntu:20.04
 
 LABEL maintainer="Jake Jarvis <jake@jarv.is>"
 LABEL repository="https://github.com/jakejarvis/y2k"
-LABEL homepage="https://y2k.jarv.is/"
+LABEL homepage="https://y2k.app/"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
