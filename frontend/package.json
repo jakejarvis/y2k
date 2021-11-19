@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "build": "esbuild app.js --outdir=public --platform=browser --target=es2020 --bundle --minify --sourcemap"
+  },
+  "dependencies": {
+    "@novnc/novnc": "1.3.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.13.14"
+  }
+}

@@ -1,10 +1,7 @@
-import RFB from "https://cdn.skypack.dev/pin/@novnc/novnc@v1.3.0-RRNSIy674lWHJVNg8Apd/mode=imports,min/unoptimized/core/rfb.js";
+import RFB from "@novnc/novnc/core/rfb.js";
 
 // DOS-style box for text
 const cmd = document.getElementById("cmd-text");
-
-// random tile wallpaper
-document.body.style.backgroundImage = "url('tiles/tile_" + Math.floor(20 * Math.random()) + ".jpg')";
 
 if (window.WebSocket) {
   // https://github.com/novnc/noVNC/blob/master/docs/API.md
