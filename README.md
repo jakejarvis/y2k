@@ -1,6 +1,6 @@
-# 💾 [Y2K Sandbox](https://y2k.app/) [![Uptime Robot status](https://img.shields.io/uptimerobot/status/m785127956-49458d510e68142930db872d?logo=windows%2095)](https://y2k.app/) [![Uptime Robot ratio (7 days)](https://img.shields.io/uptimerobot/ratio/7/m785127956-49458d510e68142930db872d?color=%23638ebd&logo=zeit)](https://status.jrvs.io/785127956)
+# 💾 [Y2K Sandbox](https://y2k.app/) [![Uptime Robot status](https://img.shields.io/uptimerobot/status/m785127956-49458d510e68142930db872d?logo=windows%2095)](https://y2k.app/) [![Uptime Robot ratio (7 days)](https://img.shields.io/uptimerobot/ratio/7/m785127956-49458d510e68142930db872d?color=%23638ebd&logo=zeit)](https://status.jrvs.io/785127956/check/597930)
 
-Nostalgic time machine powered by on-demand Windows Me® VMs, [my first website](https://jakejarvis.github.io/my-first-website/), and quarantine boredom. 📟
+Nostalgic time machine powered by on-demand Windows Me® VMs, [my first website](https://github.com/jakejarvis/my-first-website), and quarantine boredom. 📟
 
 [**📝 Read the blog post here.**](https://jarv.is/notes/y2k-sandbox/)
 
@@ -8,11 +8,11 @@ Nostalgic time machine powered by on-demand Windows Me® VMs, [my first website]
 
 ## Requirements
 
-- Docker
-- [QEMU](https://www.qemu.org/) (target i386)
+- [Docker](https://www.docker.com/)
+- [QEMU](https://www.qemu.org/)
 - [websocketd](https://github.com/joewalnes/websocketd)
 - [noVNC](https://github.com/novnc/noVNC)
-- [Cloudflare Argo Tunnel](https://www.cloudflare.com/products/argo-tunnel/)
+- [Cloudflare Tunnel](https://www.cloudflare.com/products/tunnel/) (backend) and [Pages](https://pages.cloudflare.com/) (frontend)
 - [Microsoft Bob](https://en.wikipedia.org/wiki/Microsoft_Bob)
 
 ## Inspired By
@@ -31,4 +31,4 @@ Nostalgic time machine powered by on-demand Windows Me® VMs, [my first website]
 
 ## License
 
-This project is distributed under the [MIT license](LICENSE.md).
+MIT
