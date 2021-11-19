@@ -7,7 +7,7 @@ if (window.WebSocket) {
   // https://github.com/novnc/noVNC/blob/master/docs/API.md
   const rfb = new RFB(
     document.getElementById("display"),
-    "wss://spin-vm.jrvs.io",
+    "wss://socket.y2k.app",
     {
       wsProtocols: ["binary", "base64"]
     }
