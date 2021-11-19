@@ -35,6 +35,7 @@ div#cmd, div#display {
   left: 0;
   right: 0;
 }
+
 div#cmd {
   width: 600px;
   height: 300px;
@@ -46,6 +47,7 @@ div#cmd span {
   color: #ccc;
   white-space: pre;
 }
+
 div#display {
   max-width: 800px;
   max-height: 600px;
@@ -71,7 +73,6 @@ div#display div canvas {
 span.blink {
   animation: blink 1s step-end infinite;
 }
-
 @keyframes blink {
   50% {
     opacity: 0;
@@ -79,10 +80,20 @@ span.blink {
 }
 
 /* http://tholman.com/github-corners/ */
-.github-corner:hover .octo-arm {
+a#github-corner svg {
+  fill: #fff;
+  color: #333;
+  position: absolute;
+  top: 0;
+  border: 0;
+  right: 0;
+}
+a#github-corner svg path.octo-arm {
+  transform-origin: 130px 106px;
+}
+a#github-corner:hover svg path.octo-arm {
   animation: octocat-wave 560ms ease-in-out;
 }
-
 @keyframes octocat-wave {
   0%, 100% {
     transform: rotate(0);
