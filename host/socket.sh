@@ -7,7 +7,7 @@ $REPO_DIR/host/websocketd \
   --port=80 \
   --binary \
   --header-ws="Sec-WebSocket-Protocol: binary" \
-  --origin=y2k.app,www.y2k.app,hardcore-turing-5cd513.netlify.app \
+  --origin=y2k.app,www.y2k.app,y2k.pages.dev \
   -- \
   docker run \
     --cpus 1 \
