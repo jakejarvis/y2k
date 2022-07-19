@@ -1,3 +1,5 @@
-hostname: socket.y2k.app
+hostname: y2k.pipe.fail
 url: http://localhost:80
 logfile: /var/log/cloudflared.log
+tunnel:
+credentials-file:

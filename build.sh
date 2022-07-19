@@ -9,4 +9,5 @@ YOU_ARE_HERE="$(realpath "$(dirname "${BASH_SOURCE[0]}")")"
 test -f "$YOU_ARE_HERE"/container/hdd/hdd.img
 
 # build the container & tag it locally
-docker build -t y2k:latest --squash --no-cache "$YOU_ARE_HERE"
+docker build -t git.pipe.fail/jake/y2k:latest --squash --no-cache "$YOU_ARE_HERE"
+docker push git.pipe.fail/jake/y2k:latest

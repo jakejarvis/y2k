@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 REPO_DIR=/root/y2k
-IMAGE_NAME=y2k:latest
+IMAGE_NAME=git.pipe.fail/jake/y2k:latest
 
 $REPO_DIR/host/websocketd \
   --port=80 \
   --binary \
   --header-ws="Sec-WebSocket-Protocol: binary" \
-  --origin=y2k.app,www.y2k.app,y2k.pages.dev \
+  --origin=jarv.is,www.jarv.is,y2k.pages.dev \
   -- \
   docker run \
     --cpus 1 \
